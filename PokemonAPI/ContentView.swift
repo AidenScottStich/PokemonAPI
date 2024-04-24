@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  PokemonAPI
 //
-//  Created by STICH, AIDEN S. on 4/24/24.
+//  Created by STICH, AIDEN SCOTT on 4/24/24.
 //
 
 import SwiftUI
