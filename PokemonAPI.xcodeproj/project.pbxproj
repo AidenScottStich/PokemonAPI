@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0E82F92BD9537B00D2FBBA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E82F82BD9537B00D2FBBA /* ListView.swift */; };
 		9A27B9202BD94CC8006AAF92 /* PokemonAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */; };
 		9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27B9212BD94CC8006AAF92 /* ContentView.swift */; };
 		9A27B9242BD94CC9006AAF92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A27B9232BD94CC9006AAF92 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0E82F82BD9537B00D2FBBA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		9A0E82FA2BD9547F00D2FBBA /* url-image */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "url-image"; path = "../../../../Library/Developer/Xcode/DerivedData/MemeApiApp-edmnkkpwlokqnschamvaponmwahd/SourcePackages/checkouts/url-image"; sourceTree = "<group>"; };
 		9A27B91C2BD94CC8006AAF92 /* PokemonAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIApp.swift; sourceTree = "<group>"; };
 		9A27B9212BD94CC8006AAF92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 			children = (
 				9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */,
 				9A27B9212BD94CC8006AAF92 /* ContentView.swift */,
+				9A0E82F82BD9537B00D2FBBA /* ListView.swift */,
 				9A27B9232BD94CC9006AAF92 /* Assets.xcassets */,
 				9A27B9252BD94CC9006AAF92 /* Preview Content */,
 			);
@@ -62,6 +66,7 @@
 		9A27B9252BD94CC9006AAF92 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				9A0E82FA2BD9547F00D2FBBA /* url-image */,
 				9A27B9262BD94CC9006AAF92 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -139,6 +144,7 @@
 			files = (
 				9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */,
 				9A27B9202BD94CC8006AAF92 /* PokemonAPIApp.swift in Sources */,
+				9A0E82F92BD9537B00D2FBBA /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
