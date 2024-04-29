@@ -6,7 +6,7 @@ struct Images: Codable {
 
 struct PokemonDetails: Codable {
     let id: Int
-    let sprites: Images // Change sprites to be of type Images
+    let sprites: Images
 }
 
 struct Poke: Codable, Identifiable {
@@ -24,81 +24,64 @@ struct ListView: View {
     @State private var pokemonDetails: [PokemonDetails?] = []
     
     var body: some View {
-        VStack {
-            Button(action: {
-                fetchPoke()
-                print("Button is clicked")
-            }, label: {
-                Text("Fetch Pokemon")
-            })
+        
+        NavigationView {
             
-            ScrollView {
-                LazyVStack {
-                    ForEach(results.indices, id: \.self) { index in
-                        VStack {
-                            Text(results[index].name)
-                                .font(.title)
-                            if let details = pokemonDetails[index] {
-                                if let imageURL = URL(string: details.sprites.front_default) {
-                                    // Display the image using URL
-                                    AsyncImage(url: imageURL) { phase in
-                                        switch phase {
-                                        case .empty:
-                                            ProgressView()
-                                        case .success(let image):
-                                            image
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                        case .failure:
-                                            ProgressView()
-                                        @unknown default:
-                                            ProgressView()
-                                        }
-                                    }
-                                    .frame(width: 100, height: 100) // Adjust size as needed
-                                }
-                                
-                                // You can add more details as needed
-                            } else {
-                                ProgressView()
-                                    .onAppear {
-                                        // Fetch details when the view appears
-                                        fetchPokemonDetails(for: results[index])
-                                    }
-                            }
+            VStack {
+                HStack(spacing: 8) {
+                            // Red dot
+                            Circle()
+                                .fill(Color.red)
+                                .frame(width: 20, height: 20)
+                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                            
+                            // Green dot
+                            Circle()
+                                .fill(Color.green)
+                                .frame(width: 20, height: 20)
+                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                            
+                            // Blue dot
+                            Circle()
+                                .fill(Color.blue)
+                                .frame(width: 20, height: 20)
+                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
                         }
+                Text("Pokedex list")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Button(action: {
+                    fetchPoke()
+                    print("Button is clicked")
+                }, label: {
+                    Text("Fetch Pokemon")
                         .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 4)
+                        .cornerRadius(10)
+                })
+                
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        ForEach(results.indices, id: \.self) { index in
+                            PokemonEntryView(pokemon: results[index], details: pokemonDetails[index])
+                                .onAppear {
+                                    fetchPokemonDetailsIfNeeded(for: results[index])
+                                }
+                        }
+                        
                     }
+                    .padding()
+                    .background(Color.blue)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 10)
                 }
             }
+            
+            .background(Color.red)
         }
-        .padding()
     }
-    
-    // Function to fetch details for a specific Pokemon
-       func fetchPokemonDetails(for poke: Poke) {
-           guard let url = URL(string: poke.url.absoluteString) else {
-               print("Invalid Pokemon URL")
-               return
-           }
-           
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               if let jsonData = data {
-                   do {
-                       let decoder = JSONDecoder()
-                       let pokemonDetails = try decoder.decode(PokemonDetails.self, from: jsonData)
-                       DispatchQueue.main.async {
-                           // Find the index of the Poke in results array and update corresponding pokemonDetails
-                           if let index = results.firstIndex(where: { $0.id == poke.id }) {
-                               self.pokemonDetails[index] = pokemonDetails
-                           }
-                       }
-                   } catch {
-                       print("Error decoding JSON: \(error)")
-                   }
-               }
-           }.resume()
-       }
     
     func fetchPoke() {
         guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?limit=100") else {
@@ -113,13 +96,81 @@ struct ListView: View {
                     let pokeResponse = try decoder.decode(PokeResponse.self, from: jsonData)
                     DispatchQueue.main.async {
                         self.results = pokeResponse.results
-                        self.pokemonDetails = Array(repeating: nil, count: pokeResponse.results.count) // Initialize pokemonDetails array
+                        self.pokemonDetails = Array(repeating: nil, count: pokeResponse.results.count)
                     }
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
             }
         }.resume()
+    }
+    
+    func fetchPokemonDetailsIfNeeded(for poke: Poke) {
+        guard let url = URL(string: poke.url.absoluteString) else {
+            print("Invalid Pokemon URL")
+            return
+        }
+        
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let jsonData = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let pokemonDetails = try decoder.decode(PokemonDetails.self, from: jsonData)
+                    DispatchQueue.main.async {
+                        if let index = results.firstIndex(where: { $0.id == poke.id }) {
+                            self.pokemonDetails[index] = pokemonDetails
+                        }
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            }
+        }.resume()
+    }
+}
+
+struct PokemonEntryView: View {
+    let pokemon: Poke
+    let details: PokemonDetails?
+    
+    var body: some View {
+        VStack {
+            if let imageURL = details?.sprites.front_default, let url = URL(string: imageURL) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    case .failure:
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.gray)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+                .frame(width: 100, height: 100)
+            } else {
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.gray)
+                    .frame(width: 100, height: 100)
+            }
+            
+            Text(pokemon.name.capitalized)
+                .font(.headline)
+                .padding(.top, 5)
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 3)
     }
 }
 
