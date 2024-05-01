@@ -13,7 +13,7 @@ struct PokemonCard: View {
     var body: some View {
         
         VStack{
-            Text("Pokemon Card").font(.largeTitle).padding(50)
+            Text(pokemon.name.capitalized).font(.largeTitle).padding(50)
             
             AsyncImage(url: URL(string:pokemon.sprites.front_default)) { phase in
                         switch phase {
@@ -30,10 +30,23 @@ struct PokemonCard: View {
                         }
                     }
                     .frame(width: 300, height: 300)
-            Text(pokemon.name)
             
-            let typeNames = pokemon.types.map { $0.type.name }.joined(separator: ", ")
+            let typeNames = pokemon.types.map { $0.type.name.capitalized }.joined(separator: ", ")
             Text("Type: \(typeNames)")
+
+            VStack{
+                Text("Base Stats")
+                ForEach(pokemon.stats ?? []){ stat in
+                    Text(" \(stat.stat.name.capitalized) \(stat.base_stat)")
+                    
+                }
+            }
+            
+            ScrollView{
+                ForEach(pokemon.moves ?? []) { move in
+                    Text(move.move.name)
+                }
+            }
      
      
             

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		159F36412BE281BC00DDC539 /* PokemonStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F36402BE281BC00DDC539 /* PokemonStructure.swift */; };
 		9A0E82F92BD9537B00D2FBBA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E82F82BD9537B00D2FBBA /* ListView.swift */; };
 		9A27B9202BD94CC8006AAF92 /* PokemonAPIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */; };
 		9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27B9212BD94CC8006AAF92 /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		159F36402BE281BC00DDC539 /* PokemonStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStructure.swift; sourceTree = "<group>"; };
 		9A0E82F82BD9537B00D2FBBA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		9A0E82FA2BD9547F00D2FBBA /* url-image */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "url-image"; path = "../../../../Library/Developer/Xcode/DerivedData/MemeApiApp-edmnkkpwlokqnschamvaponmwahd/SourcePackages/checkouts/url-image"; sourceTree = "<group>"; };
 		9A27B91C2BD94CC8006AAF92 /* PokemonAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 				9A0E82F82BD9537B00D2FBBA /* ListView.swift */,
 				9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */,
 				9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */,
+				159F36402BE281BC00DDC539 /* PokemonStructure.swift */,
 				9A27B9232BD94CC9006AAF92 /* Assets.xcassets */,
 				9A27B9252BD94CC9006AAF92 /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */,
+				159F36412BE281BC00DDC539 /* PokemonStructure.swift in Sources */,
 				9A98B4A32BDFEB5F009F39EC /* PokemonCard.swift in Sources */,
 				9A98B4A12BDFEB4E009F39EC /* PokemonSearch.swift in Sources */,
 				9A27B9202BD94CC8006AAF92 /* PokemonAPIApp.swift in Sources */,

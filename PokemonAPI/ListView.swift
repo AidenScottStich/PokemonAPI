@@ -22,6 +22,8 @@ struct PokeResponse: Codable {
 struct ListView: View {
     @State private var results: [Poke] = []
     @State private var pokemonDetails: [PokemonDetails?] = []
+    @State private var showPokemon = false
+    @State private var data: ApiResponse? = nil
     
     var body: some View {
         
@@ -69,6 +71,25 @@ struct ListView: View {
                             PokemonEntryView(pokemon: results[index], details: pokemonDetails[index])
                                 .onAppear {
                                     fetchPokemonDetailsIfNeeded(for: results[index])
+                                }.onTapGesture {
+                                    showPokemon.toggle()
+                                    print(pokemonDetails[index])
+  
+                                    if let pokemon = pokemonDetails[index] {
+                                        let selectedId = String(pokemon.id)
+                                        fetchSingleData(selectedId: selectedId) { result in
+                                            switch result {
+                                            case .success(let result):
+
+                                            data = result
+                                            case .failure(let error):
+                                                // Handle the error
+                                                print("Error: \(error)")
+                                            }
+                                        }
+                                    }
+
+                                    
                                 }
                         }
                         
@@ -80,6 +101,10 @@ struct ListView: View {
             }
             
             .background(Color.red)
+        }        .sheet(isPresented: $showPokemon) {
+            if let pokemonData = data {
+                PokemonCard(pokemon: pokemonData)
+            }
         }
     }
     
@@ -128,7 +153,36 @@ struct ListView: View {
             }
         }.resume()
     }
+    func fetchSingleData(selectedId: String, completion: @escaping (Result<ApiResponse, Error>) -> Void) {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(selectedId.lowercased())") else {
+            print("Invalid URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let responseData = data else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                return
+            }
+            
+            do {
+                let decodedData = try JSONDecoder().decode(ApiResponse.self, from: responseData)
+                DispatchQueue.main.async {
+                    completion(.success(decodedData))
+                }
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+
 }
+
 
 struct PokemonEntryView: View {
     let pokemon: Poke
