@@ -4,16 +4,35 @@
 //
 //  Created by STICH, AIDEN SCOTT on 4/24/24.
 //
-
-
+ 
 import SwiftUI
-
-struct HomeView: View {
+ 
+struct ContentView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            TabView {
+                ListView()
+                    .tabItem {
+                        Label("Home", systemImage: "person")
+                    }
+                PokemonSearch()
+                    .tabItem {
+                        Label("Pokemon Search", systemImage: "magnifyingglass")
+                    }
+                    
+            }
+            .tint(.black)
+                    .onAppear(perform: {
+                        //2
+                        UITabBar.appearance().unselectedItemTintColor = .systemBlue
+                        //4
+                        UITabBar.appearance().backgroundColor = .white.withAlphaComponent(0.9)
+                    })
+        }
     }
 }
 
+ 
 #Preview {
-    HomeView()
+    ContentView()
 }

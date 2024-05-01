@@ -12,6 +12,8 @@
 		9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A27B9212BD94CC8006AAF92 /* ContentView.swift */; };
 		9A27B9242BD94CC9006AAF92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A27B9232BD94CC9006AAF92 /* Assets.xcassets */; };
 		9A27B9272BD94CC9006AAF92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A27B9262BD94CC9006AAF92 /* Preview Assets.xcassets */; };
+		9A98B4A12BDFEB4E009F39EC /* PokemonSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */; };
+		9A98B4A32BDFEB5F009F39EC /* PokemonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		9A27B9212BD94CC8006AAF92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9A27B9232BD94CC9006AAF92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A27B9262BD94CC9006AAF92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearch.swift; sourceTree = "<group>"; };
+		9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */,
 				9A27B9212BD94CC8006AAF92 /* ContentView.swift */,
 				9A0E82F82BD9537B00D2FBBA /* ListView.swift */,
+				9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */,
+				9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */,
 				9A27B9232BD94CC9006AAF92 /* Assets.xcassets */,
 				9A27B9252BD94CC9006AAF92 /* Preview Content */,
 			);
@@ -143,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */,
+				9A98B4A32BDFEB5F009F39EC /* PokemonCard.swift in Sources */,
+				9A98B4A12BDFEB4E009F39EC /* PokemonSearch.swift in Sources */,
 				9A27B9202BD94CC8006AAF92 /* PokemonAPIApp.swift in Sources */,
 				9A0E82F92BD9537B00D2FBBA /* ListView.swift in Sources */,
 			);

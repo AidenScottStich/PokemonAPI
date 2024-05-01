@@ -31,7 +31,7 @@ struct ListView: View {
                 HStack(spacing: 8) {
                             // Red dot
                             Circle()
-                                .fill(Color.red)
+                                .fill(Color.yellow)
                                 .frame(width: 20, height: 20)
                                 .overlay(Circle().stroke(Color.black, lineWidth: 1))
                             
@@ -174,8 +174,6 @@ struct PokemonEntryView: View {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView()
-    }
+#Preview {
+    ListView()
 }
