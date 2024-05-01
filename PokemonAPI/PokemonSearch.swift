@@ -51,8 +51,13 @@ struct PokemonSearch: View {
                     fetchData()
                 }, label: {
                     Text("Search")
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 4)
+                        .cornerRadius(10)
                 })
-                .colorInvert()
                 .padding()
                 
                 Spacer()

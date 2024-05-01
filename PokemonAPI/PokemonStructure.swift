@@ -105,5 +105,6 @@ struct ApiResponse: Codable {
     let name: String
     let moves: [Move]
     let stats: [Stat]
+    let weight: Int
 
 }
