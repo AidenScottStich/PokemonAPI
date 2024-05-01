@@ -19,6 +19,10 @@ struct ContentView: View {
                     .tabItem {
                         Label("Pokemon Search", systemImage: "magnifyingglass")
                     }
+                AttackView()
+                    .tabItem {
+                        Label("Battle", systemImage: "burst")
+                    }
                     
             }
             .tint(.black)

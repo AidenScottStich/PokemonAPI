@@ -15,6 +15,7 @@
 		9A27B9272BD94CC9006AAF92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A27B9262BD94CC9006AAF92 /* Preview Assets.xcassets */; };
 		9A98B4A12BDFEB4E009F39EC /* PokemonSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */; };
 		9A98B4A32BDFEB5F009F39EC /* PokemonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */; };
+		9AC76BB42BE2891C00EDC7FA /* AttackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC76BB32BE2891C00EDC7FA /* AttackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9A27B9262BD94CC9006AAF92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSearch.swift; sourceTree = "<group>"; };
 		9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCard.swift; sourceTree = "<group>"; };
+		9AC76BB32BE2891C00EDC7FA /* AttackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9A27B91F2BD94CC8006AAF92 /* PokemonAPIApp.swift */,
 				9A27B9212BD94CC8006AAF92 /* ContentView.swift */,
 				9A0E82F82BD9537B00D2FBBA /* ListView.swift */,
+				9AC76BB32BE2891C00EDC7FA /* AttackView.swift */,
 				9A98B4A02BDFEB4E009F39EC /* PokemonSearch.swift */,
 				9A98B4A22BDFEB5F009F39EC /* PokemonCard.swift */,
 				159F36402BE281BC00DDC539 /* PokemonStructure.swift */,
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A27B9222BD94CC8006AAF92 /* ContentView.swift in Sources */,
+				9AC76BB42BE2891C00EDC7FA /* AttackView.swift in Sources */,
 				159F36412BE281BC00DDC539 /* PokemonStructure.swift in Sources */,
 				9A98B4A32BDFEB5F009F39EC /* PokemonCard.swift in Sources */,
 				9A98B4A12BDFEB4E009F39EC /* PokemonSearch.swift in Sources */,
