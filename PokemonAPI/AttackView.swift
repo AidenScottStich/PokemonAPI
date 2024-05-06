@@ -5,7 +5,6 @@ struct AttackView: View {
     @State private var pokemon2: ApiResponse? = nil
     @State private var winner: ApiResponse?
     @State private var showResult = false
-    @State private var reloadPage = false
     
 
     var body: some View {
@@ -73,6 +72,7 @@ struct AttackView: View {
         .onAppear {
             fetchRandomPokemons()
         }
+        
         .sheet(isPresented: $showResult) {
             if let winner = winner {
                 
@@ -106,7 +106,6 @@ struct AttackView: View {
                             .padding()
             }
         }
-        .id(reloadPage) // Reloads the view when reloadPage changes
     }
     
     func fetchRandomPokemons() {
@@ -125,7 +124,7 @@ struct AttackView: View {
         pokemon2 = nil
         winner = nil
         showResult = false
-        reloadPage.toggle()
+        fetchRandomPokemons()
     }
     
     func fetchPokemon(id: Int, completion: @escaping (ApiResponse) -> Void) {

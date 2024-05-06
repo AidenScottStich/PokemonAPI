@@ -31,27 +31,27 @@ struct ListView: View {
             
             VStack {
                 HStack(spacing: 8) {
-                            // Red dot
-                            Circle()
-                                .fill(Color.yellow)
-                                .frame(width: 20, height: 20)
-                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                            
-                            // Green dot
-                            Circle()
-                                .fill(Color.green)
-                                .frame(width: 20, height: 20)
-                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                            
-                            // Blue dot
-                            Circle()
-                                .fill(Color.blue)
-                                .frame(width: 20, height: 20)
-                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                        }
+                    // Red dot
+                    Circle()
+                        .fill(Color.yellow)
+                        .frame(width: 20, height: 20)
+                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                    
+                    // Green dot
+                    Circle()
+                        .fill(Color.green)
+                        .frame(width: 20, height: 20)
+                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                    
+                    // Blue dot
+                    Circle()
+                        .fill(Color.blue)
+                        .frame(width: 20, height: 20)
+                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                }
                 Text("Pokedex list")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.title)
+                    .fontWeight(.bold)
                 Button(action: {
                     fetchPoke()
                     print("Button is clicked")
@@ -61,7 +61,7 @@ struct ListView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                         .foregroundColor(.white)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 4)
+                        .border(Color.black, width: 4)
                         .cornerRadius(10)
                 })
                 
@@ -74,21 +74,21 @@ struct ListView: View {
                                 }.onTapGesture {
                                     showPokemon.toggle()
                                     print(pokemonDetails[index])
-  
+                                    
                                     if let pokemon = pokemonDetails[index] {
                                         let selectedId = String(pokemon.id)
                                         fetchSingleData(selectedId: selectedId) { result in
                                             switch result {
                                             case .success(let result):
-
-                                            data = result
+                                                
+                                                data = result
                                             case .failure(let error):
                                                 // Handle the error
                                                 print("Error: \(error)")
                                             }
                                         }
                                     }
-
+                                    
                                     
                                 }
                         }
@@ -96,7 +96,7 @@ struct ListView: View {
                     }
                     .padding()
                     .background(Color.blue)
-                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 10)
+                    .border(Color.black, width: 10)
                 }
             }
             

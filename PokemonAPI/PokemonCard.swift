@@ -40,6 +40,7 @@ struct PokemonCard: View {
                 
                 VStack(alignment: .leading){
                     Text("Base Stats")
+
                         .bold()
                         .padding([.bottom], 5)
                     ForEach(pokemon.stats ?? []){ stat in
@@ -47,6 +48,7 @@ struct PokemonCard: View {
                         
                     }
                 }.padding([.bottom],10)
+                    
                 Text("Weight: \(pokemon.weight)")
                 VStack{
                     Text("Avliable Moves")
