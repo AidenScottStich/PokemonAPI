@@ -40,12 +40,16 @@ struct PokemonSearch: View {
                                 .overlay(Circle().stroke(Color.black, lineWidth: 1))
                         }
                 Text("Input a Pokémon name")
+                    .foregroundColor(.white)
+                    .font(.title2)
                 TextField("Pokemon Name", text: $inputName)
+                    .foregroundColor(.white)
                     .textInputAutocapitalization(.none)
                     .disableAutocorrection(true)
                     .padding(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.secondary, lineWidth: 1))
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 5))
                     .padding([.leading, .trailing], 50)
+                    
                 
                 Button(action: {
                     fetchData()

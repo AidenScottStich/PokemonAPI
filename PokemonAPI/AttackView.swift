@@ -110,8 +110,8 @@ struct AttackView: View {
     }
     
     func fetchRandomPokemons() {
-        let randomId1 = Int.random(in: 1...100)
-        let randomId2 = Int.random(in: 1...100)
+        let randomId1 = Int.random(in: 1...1000)
+        let randomId2 = Int.random(in: 1...1000)
         fetchPokemon(id: randomId1) { pokemon in
             self.pokemon1 = pokemon
         }
